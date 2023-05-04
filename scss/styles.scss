@@ -1,4 +1,5 @@
-@import 'https://unpkg.com/@typehaus/metropolis';
+@import "@typehaus/metropolis/500.css";
+@import "@typehaus/metropolis/600.css";
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/maps";
@@ -15,7 +16,8 @@
 html,
 body {
   height: 100%;
-  font-family: 'Metropolis', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Ysabeau', sans-serif;
+  font-weight: 500;
   overflow-x: hidden;
 }
 
@@ -23,6 +25,11 @@ body {
   background-color: #FAF9FF;
   color: #1A0D50;
   padding: 0 18px;
+  transition: opacity 1s ease;
+
+  &.hide {
+    opacity: 0;
+  }
 }
 
 .names {
@@ -32,27 +39,99 @@ body {
   margin-top: 30px;
   font-size: 18px;
 
+  @include media-breakpoint-up(lg) {
+    margin-top: 120px;
+  }
+
   .heart {
     margin: 0 8px;
   }
 }
 
+.tiles {
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    display: flex;
+    gap: 30px;
+
+    .tile {
+      display: flex;
+      flex-direction: column;
+      margin-top: 60px;
+      gap: 30px;
+
+      &:nth-child(odd) {
+        margin-top: 30px;
+      }
+
+      img {
+        width: 100%;
+        border-radius: 20px;
+        filter: drop-shadow(0px 0px 5px rgba(82, 79, 92, 0.3));
+      }
+
+      &.optional-tile {
+        display: none;
+
+        @media (min-width: 1200px) {
+          display: flex;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+.first-fold {
+  @include media-breakpoint-up(lg) {
+    height: 100%;
+    max-height: 1050px;
+  }
+}
+
+.second-fold {
+  @include media-breakpoint-up(lg) {
+    max-width: 800px;
+    margin: 80px auto 0;
+  }
+}
+
 .title-container {
   margin-top: 60px;
+  font-family: 'Metropolis', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 60px;
+  }
 
   .title {
     font-size: 64px;
     line-height: 115%;
     font-weight: 700;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 96px;
+    }
   }
 
   .underline {
     width: 250px;
+
+    @include media-breakpoint-up(lg) {
+      width: 370px;
+    }
   }
 }
 
 .slick {
   margin: 40px -38px;
+
+  @include media-breakpoint-up(lg) {
+    display: none !important;
+  }
 
   .slide {
     padding: 8px;
@@ -67,12 +146,17 @@ body {
 
 .message-wrapper {
   padding: 60px 0;
+}
 
-  .message {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 28px;
-    text-align: center;
+.message {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  text-align: center;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 22px;
+    line-height: 32px;
   }
 }
 
@@ -80,6 +164,10 @@ body {
   background-color: #F3F0FF;
   margin: 0 -30px;
   padding: 40px 30px;
+
+  @include media-breakpoint-up(lg) {
+    border-radius: 20px;
+  }
 
   .event {
     text-align: center;
@@ -97,6 +185,7 @@ body {
       font-weight: 600;
       margin: 0;
       line-height: 1;
+      font-family: 'Metropolis', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
     .month {
@@ -113,7 +202,7 @@ body {
 
     .time {
       margin-top: 10px;
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 }
